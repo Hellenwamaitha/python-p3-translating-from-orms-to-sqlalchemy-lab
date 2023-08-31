@@ -11,18 +11,30 @@ def save(session, dog):
     
 
 def get_all(session):
-    pass
+    session.get_all()
+    
 
 def find_by_name(session, name):
-    pass
+   Dog = session.find_item_by_name(name)
+   return Dog
+    
 
 def find_by_id(session, id):
-    pass
+   dog = session.find_item_by_name(id)
+   return dog
 
 def find_by_name_and_breed(session, name, breed):
-    pass
+    for dog in session.dog: 
+        if dog.name == name and dog.breed == breed:
+            return dog  
+    return None  
+   
 
 def update_breed(session, dog, breed):
-    table.update().where(conditions).values(SET expression
-    students.update().where(students.c.lastname == 'Khanna').values(lastname = 'Kapoor')                                        
-    pass
+    for item in session.items:  
+        if item == dog:
+            item.breed = breed  
+    return False  
+
+                                           
+   
