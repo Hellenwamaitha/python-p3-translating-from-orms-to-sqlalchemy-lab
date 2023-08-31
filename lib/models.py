@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
 
-from sqlalchemy import (Column, String, Integer)
+from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+
+engine = create_engine('sqlite:///dogs.db', echo=True)
+
+
+Session = sessionmaker(bind=engine)
+
+
+session = Session()
+
 
 Base = declarative_base()
 
@@ -11,3 +22,6 @@ class Dog(Base):
     id = Column(Integer(), primary_key=True)
     name = Column(String())
     breed = Column(String())
+
+
+Base.metadata.create_all(engine)

@@ -1,10 +1,14 @@
 from models import Dog
 
-def create_table(base):
-    pass
+def create_table(base, engine):
+       
+       base.create_table(engine) 
+    
 
 def save(session, dog):
-    pass
+    session.add(dog)
+    session.commit()
+    
 
 def get_all(session):
     pass
@@ -19,4 +23,6 @@ def find_by_name_and_breed(session, name, breed):
     pass
 
 def update_breed(session, dog, breed):
+    table.update().where(conditions).values(SET expression
+    students.update().where(students.c.lastname == 'Khanna').values(lastname = 'Kapoor')                                        
     pass
